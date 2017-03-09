@@ -45,7 +45,7 @@ class DeviceScraper
     choose = form.click_button(next_button)
     data = {
       slot_id: slot_id,
-      asin: asin_list,
+      asin_list: asin_list,
       title: title
     }
     if choose.uri.to_s != 'https://drs-web.amazon.com/setup_overview'
