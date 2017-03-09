@@ -58,7 +58,7 @@ class DeviceScraper
   def oauth_url
     redirect_uri = "http://localhost:55582/"
     base = 'https://www.amazon.com/ap/oa?'
-    client_id = 'amzn1.application-oa2-client.b5c87429af104636bd7ae83df68383e1'
+    client_id = Rails.application.secrets.client_id
     serial = generate_serial
     params = {
       client_id: client_id,
