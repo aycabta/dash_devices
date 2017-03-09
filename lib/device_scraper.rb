@@ -9,7 +9,6 @@ class DeviceScraper
   def run
     agent = Mechanize.new
     agent.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'
-    puts 'log in try...'
     page = agent.get(oauth_url)
     form = page.form_with(name: 'signIn', id: 'ap_signin_form') { |f|
       f.email = Rails.application.secrets.amazon_email
@@ -17,16 +16,12 @@ class DeviceScraper
       f.checkbox_with(name: 'rememberMe').check
     }
     loggedin = form.submit
-    puts 'logged in'
 
-    puts 'press okey'
     form = loggedin.form_with(name: 'consent-form')
     okey = form.button_with(name: 'consentApproved')
     choose = form.click_button(okey)
-    puts 'done'
 
     slot_set = recursive_choose(choose)
-    puts 'end'
     slot_set
   end
 
@@ -35,9 +30,6 @@ class DeviceScraper
     slot_id = choose.search('//input[@name="slotId"]').attr('value').value
     items = choose.search('.a-row .products').first.search('.product')
     asin_list = items.map { |i| i.attributes['id'].value }
-    puts title
-    puts slot_id
-    puts asin_list
 
     form = choose.form_with(action: '/slot_action')
     form.radiobutton_with(name: 'asin', value: asin_list.first).check
