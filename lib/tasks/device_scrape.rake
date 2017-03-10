@@ -1,4 +1,3 @@
-
 namespace :device do
   task :scrape => :environment do |task|
     devices = Device.where(scraped: false)
