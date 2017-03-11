@@ -1,0 +1,11 @@
+%p= @device.name
+%p= @device.model
+%p= @device.scraped
+%dl
+  - @device.slots.each do |slot|
+    %dt= slot.name
+    %dd= slot.drs_slot_id
+    %dd
+      %ul
+        - slot.items.each do |item|
+          %li= item.asin
