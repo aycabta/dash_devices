@@ -1,6 +1,12 @@
-%p= @device.name
-%p= @device.model
-%p= @device.scraped
+%h1= @device.name
+
+%dl
+  %dt= 'model'
+  %dd= @device.model
+  %dt= 'scraped'
+  %dd= @device.scraped
+
+%h2= 'Slots'
 %ul
   - @device.slots.each do |slot|
     %li
