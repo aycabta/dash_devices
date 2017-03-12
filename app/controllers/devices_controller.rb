@@ -10,6 +10,6 @@ class DevicesController < ApplicationController
 
   def create
     @device = Device.find_or_create_by(name: params[:device][:name], model: params[:device][:model])
-    redirect_to action: 'show', device_model: @device.model
+    redirect_to(action: 'show', device_model: @device.model)
   end
 end
