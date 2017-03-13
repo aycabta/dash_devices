@@ -1,3 +1,8 @@
+- if current_user
+  %p= "Hi, #{current_user.nickname}."
+- else
+  %p= link_to "Login with GitHub", "/auth/github"
+
 %ul
   - @devices.each do |d|
     %li
