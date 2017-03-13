@@ -4,6 +4,7 @@ class CreateDevices < ActiveRecord::Migration[5.0]
       t.string :model
       t.string :name
       t.boolean :scraped, default: false, null: false
+      t.index :model, :unique => true
 
       t.timestamps
     end
