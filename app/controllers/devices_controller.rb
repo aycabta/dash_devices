@@ -1,4 +1,5 @@
 class DevicesController < ApplicationController
+  before_action :authorize!, only: [:create]
   def index
     @devices = Device.all
     @new_device = Device.new
