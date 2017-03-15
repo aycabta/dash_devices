@@ -17,4 +17,4 @@
 %ul
   - @devices.each do |d|
     %li
-      = link_to(d.model, action: :show, device_model: d.model)
+      = link_to("#{d.name} : #{d.model}", action: :show, device_model: d.model)
