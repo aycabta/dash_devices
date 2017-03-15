@@ -1,7 +1,8 @@
 - if current_user
-  %p= "Hi, #{current_user.nickname}."
-  = form_tag(logout_path, method: :post) do
-    = submit_tag('Logout')
+  %div{ class: 'user-data' }
+    %p= "Hi, #{current_user.nickname}."
+    = form_tag(logout_path, method: :post) do
+      = submit_tag('Logout')
 - else
   %p= link_to 'Login with GitHub', '/auth/github'
 
