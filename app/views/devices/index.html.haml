@@ -5,14 +5,15 @@
 - else
   %p= link_to 'Login with GitHub', '/auth/github'
 
+- if current_user
+  = form_for(@new_device, url: devices_create_path) do |f|
+    = f.label(:name, 'Name')
+    = f.text_field(:name)
+    = f.label(:model, 'device_model')
+    = f.text_field(:model)
+    = f.submit('New')
+
 %ul
   - @devices.each do |d|
     %li
       = link_to(d.model, action: :show, device_model: d.model)
-
-= form_for(@new_device, url: devices_create_path) do |f|
-  = f.label(:name, 'Name')
-  = f.text_field(:name)
-  = f.label(:model, 'device_model')
-  = f.text_field(:model)
-  = f.submit('New')
