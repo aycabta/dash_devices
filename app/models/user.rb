@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :devices
+
   def self.find_or_create_by_auth(auth)
     user = User.find_or_create_by(provider: auth['provider'], uid: auth['uid'])
 
