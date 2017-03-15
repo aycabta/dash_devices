@@ -5,6 +5,8 @@
   %dd= @device.model
   %dt= 'scraped'
   %dd= @device.scraped
+  %dt= 'user'
+  %dd= "#{@device.user.name} (#{@device.user.nickname})"
 
 %h2= 'Slots'
 %ul
