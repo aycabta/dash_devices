@@ -10,6 +10,8 @@ div.user-data {
 
   p {
     display: inline;
+    font-weight: bold;
+    color: #333;
   }
 
   form {
@@ -43,6 +45,12 @@ ul#navigation-bar {
     height: auto;
     margin: 5px;
     text-align: center;
+  }
+
+  a {
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
   }
 }
 
