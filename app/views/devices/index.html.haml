@@ -1,6 +1,6 @@
 - if current_user
   %div{ class: 'user-data' }
-    %p= "Hi, #{current_user.name} (#{current_user.nickname})."
+    %p= "Hi, #{current_user.name}."
     = form_tag(logout_path, method: :post) do
       = submit_tag('Logout')
 - else
