@@ -4,7 +4,7 @@
     = form_tag(logout_path, method: :post) do
       = submit_tag('Logout')
 - else
-  %p= link_to 'Login with GitHub', '/auth/github'
+  %p= link_to 'Login with Amazon', '/auth/amazon'
 
 - if current_user
   = form_for(@new_device, url: devices_create_path) do |f|

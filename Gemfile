@@ -56,4 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mechanize'
 gem 'omniauth'
-gem 'omniauth-github'
+gem 'omniauth-amazon'
