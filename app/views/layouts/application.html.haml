@@ -13,7 +13,10 @@
       %li
         %div{ class: "user-data" }
           - if current_user
-            %p= "Hi, #{current_user.name}."
+            %p
+              = 'Hi, '
+              = link_to(current_user.name, users_show_path(current_user.id))
+              = '.'
             = form_tag(logout_path, method: :post) do
               = submit_tag('Logout', id: 'logout-button')
           - else
