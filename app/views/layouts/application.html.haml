@@ -17,5 +17,5 @@
             = form_tag(logout_path, method: :post) do
               = submit_tag('Logout', id: 'logout-button')
           - else
-            %p= link_to 'Login with Amazon', '/auth/amazon'
+            %p= link_to('Login with Amazon', '/auth/amazon')
     = yield
