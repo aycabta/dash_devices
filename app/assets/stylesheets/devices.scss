@@ -27,6 +27,8 @@ div.user-data {
   }
 }
 
+$navigation_height: 72px;
+
 ul#navigation-bar {
   display: flex;
   flex-direction: row;
@@ -35,7 +37,7 @@ ul#navigation-bar {
   list-style-type: none;
   margin: 5px 0px 10px;
   padding: 0px;
-  height: 70px;
+  height: $navigation_height;
   align-items: center;
   justify-content: center;
   background-color: #FFF;
@@ -89,6 +91,6 @@ div.new-device {
 body {
   background-image: asset-url("speed_boy_delivery_bg.png");
   background-repeat: no-repeat;
-  background-position: top 100px center;
+  background-position: top #{$navigation_height + 30} center;
   background-color: #EEE;
 }
