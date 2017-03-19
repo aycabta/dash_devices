@@ -43,6 +43,8 @@ ul#navigation-bar {
   align-items: center;
   justify-content: center;
   background-color: #FFF;
+  background-image: asset-url("silver_star_bg.png");
+  background-repeat: repeat;
   font-size: $navigation_font_size;
   font-weight: bold;
 
