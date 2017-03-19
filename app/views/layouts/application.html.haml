@@ -1,17 +1,17 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv':  'Content-Type' }/
     %title DashDevices
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload')
+    = javascript_include_tag('application', 'data-turbolinks-track': 'reload')
   %body
-    %ul{ id: "navigation-bar" }
+    %ul{ id: 'navigation-bar' }
       %li
         %p= link_to('Top', root_path)
       %li
-        %div{ class: "user-data" }
+        %div{ class: 'user-data' }
           - if current_user
             %p
               = 'Hi, '
