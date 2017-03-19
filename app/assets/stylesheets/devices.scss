@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$navigation_font_size: 30pt;
+
 div.user-data {
   display: block;
   margin-bottom: 1em;
@@ -10,7 +12,6 @@ div.user-data {
 
   p {
     display: inline;
-    font-weight: bold;
     color: #333;
   }
 
@@ -23,6 +24,7 @@ div.user-data {
       padding: 0px;
       color: #333;
       border: 1px solid #333;
+      font-size: #{$navigation_font_size - 2};
     }
   }
 }
@@ -41,6 +43,8 @@ ul#navigation-bar {
   align-items: center;
   justify-content: center;
   background-color: #FFF;
+  font-size: $navigation_font_size;
+  font-weight: bold;
 
   li {
     width: 90%;
@@ -50,7 +54,6 @@ ul#navigation-bar {
   }
 
   a {
-    font-weight: normal;
     color: #666;
     text-decoration: none;
   }
