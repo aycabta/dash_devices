@@ -1,4 +1,6 @@
-%ul
+%h2= "Recent #{current_user.name}'s Devices"
+
+%ul{ class: 'device-list' }
   - @user.devices.each do |d|
     %li
       = link_to("#{d.name} : #{d.model}", device_show_path(d.model))

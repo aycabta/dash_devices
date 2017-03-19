@@ -6,7 +6,9 @@
     = f.text_field(:model)
     = f.submit('New')
 
-%ul
+%h2= 'Recent Devices'
+
+%ul{ class: 'device-list' }
   - @devices.each do |d|
     %li
       = link_to("#{d.name} : #{d.model}", device_show_path(d.model))
