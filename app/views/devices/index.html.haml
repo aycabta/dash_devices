@@ -2,11 +2,9 @@
   %div{ class: 'new-device' }
     = form_for(@new_device, url: devices_create_path) do |f|
       %div{ class: 'name' }
-        = f.label(:name, 'Name')
-        = f.text_field(:name)
+        = f.text_field(:name, placeholder: 'Name')
       %div{ class: 'device-model' }
-        = f.label(:model, 'device_model')
-        = f.text_field(:model)
+        = f.text_field(:model, placeholder: 'Device Model')
       %div{ class: 'button' }
         = f.submit('New')
 
