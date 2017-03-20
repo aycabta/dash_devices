@@ -57,7 +57,7 @@ class DeviceScraper
       scope: 'dash:replenish',
       response_type: 'code',
       redirect_uri: URI.encode_www_form_component(redirect_uri),
-      scope_data: %Q`{"dash:replenish":{"device_model":"#{@device_model}","serial":"#{serial}"#{ ',"is_test_device":true' if @is_test }}}`.gsub('"', '%22')
+      scope_data: %Q`{"dash:replenish":{"device_model":"#{@device_model}","serial":"#{serial}","is_test_device":true}}`.gsub('"', '%22')
     }
     "#{base}#{params.map{ |k, v| "#{k}=#{v}" }.join(?&)}"
   end
