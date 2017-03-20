@@ -41,9 +41,8 @@ ul#navigation-bar {
   height: $navigation_height;
   align-items: center;
   justify-content: center;
-  background-color: #FFF;
-  background-image: asset-url("silver_star_bg.png");
-  background-repeat: repeat;
+  background: asset-url("silver_star_bg.png"), linear-gradient(#FFF, #AAA) repeat;
+  border: 5px inset #FFF;
   font-size: $navigation_font_size;
   font-weight: bold;
 
@@ -95,6 +94,6 @@ div.new-device {
 body {
   background-image: asset-url("speed_boy_delivery_bg.png");
   background-repeat: no-repeat;
-  background-position: top #{$navigation_height + 30} center;
+  background-position: top #{$navigation_height + 35} center;
   background-color: #EEE;
 }
