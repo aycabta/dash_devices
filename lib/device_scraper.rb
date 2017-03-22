@@ -9,7 +9,8 @@ class DeviceScraper
   def run
     agent = Mechanize.new
     agent.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'
-    page = agent.get(oauth_url)
+    url, params = oauth_request_info
+    page = agent.get(url, params)
     form = page.form_with(name: 'signIn', id: 'ap_signin_form') { |f|
       f.email = Rails.application.secrets.amazon_email
       f.password = Rails.application.secrets.amazon_password
@@ -47,7 +48,7 @@ class DeviceScraper
     end
   end
 
-  def oauth_url
+  def oauth_request_info
     redirect_uri = "http://localhost:3000/"
     base = 'https://www.amazon.com/ap/oa?'
     client_id = Rails.application.secrets.amazon_client_id
@@ -59,7 +60,7 @@ class DeviceScraper
       redirect_uri: URI.encode_www_form_component(redirect_uri),
       scope_data: %Q`{"dash:replenish":{"device_model":"#{@device_model}","serial":"#{serial}","is_test_device":true}}`.gsub('"', '%22')
     }
-    "#{base}#{params.map{ |k, v| "#{k}=#{v}" }.join(?&)}"
+    [base, params]
   end
 
   def generate_serial
