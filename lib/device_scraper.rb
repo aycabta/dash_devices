@@ -49,16 +49,13 @@ class DeviceScraper
   end
 
   def oauth_request_info
-    redirect_uri = "http://localhost:3000/"
     base = 'https://www.amazon.com/ap/oa?'
-    client_id = Rails.application.secrets.amazon_client_id
-    serial = generate_serial
     params = {
-      client_id: client_id,
+      client_id: Rails.application.secrets.amazon_client_id,
       scope: 'dash:replenish',
       response_type: 'code',
-      redirect_uri: URI.encode_www_form_component(redirect_uri),
-      scope_data: %Q`{"dash:replenish":{"device_model":"#{@device_model}","serial":"#{serial}","is_test_device":true}}`.gsub('"', '%22')
+      redirect_uri: 'http://localhost:3000/',
+      scope_data: %Q`{"dash:replenish":{"device_model":"#{@device_model}","serial":"#{generate_serial}","is_test_device":true}}`
     }
     [base, params]
   end
