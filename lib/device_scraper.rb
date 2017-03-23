@@ -2,12 +2,15 @@ require 'mechanize'
 require 'uri'
 
 class DeviceScraper
+  @@cookies_for_scrape = "#{Rails.root}/tmp/cookies_for_scrape"
+
   def initialize(device_model)
     @device_model = device_model
   end
 
   def run
     agent = Mechanize.new
+    load_cookies(agent)
     agent.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'
     url, params = oauth_request_info
     page = agent.get(url, params)
@@ -22,8 +25,28 @@ class DeviceScraper
     okey = form.button_with(name: 'consentApproved')
     choose = form.click_button(okey)
 
+    save_cookies(agent)
+
     slot_set = recursive_choose(choose)
     slot_set
+  end
+
+  def save_cookies(agent)
+    io = StringIO.new('', 'r+')
+    agent.cookie_jar.save(io)
+    open(@@cookies_for_scrape, 'w') do |f|
+      f.write(io.string)
+    end
+  end
+
+  def load_cookies(agent)
+    if File.exist?(@@cookies_for_scrape)
+      open(@@cookies_for_scrape, 'r') do |f|
+        io = StringIO.new(f.read, 'r')
+        agent.cookie_jar.clear
+        agent.cookie_jar.load(io)
+      end
+    end
   end
 
   def recursive_choose(choose)
