@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'haml-rails'
 
+gem 'coffee-rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
