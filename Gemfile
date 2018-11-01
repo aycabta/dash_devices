@@ -41,4 +41,4 @@ gem 'nokogiri', '~> 1.8.1'
 gem 'omniauth'
 gem 'omniauth-amazon'
 
-ruby '2.5.1'
+ruby '2.5.3'
