@@ -37,7 +37,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mechanize'
-gem 'nokogiri', '~> 1.8.1'
+gem 'nokogiri'
 gem 'omniauth'
 gem 'omniauth-amazon'
 
