@@ -133,7 +133,7 @@ GEM
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
-    puma (3.12.1)
+    puma (3.12.2)
     rack (2.0.7)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -228,7 +228,7 @@ DEPENDENCIES
   nokogiri
   omniauth
   omniauth-amazon
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
   spring
